@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>SafeDanbooru</title>
+</head>
+<body>
+    <div id="full-screen">
+        <div id="full-screen-image"></div>
+        <div id="full-screen-data">
+            <div id="context-menu">
+                <h1>Data</h1>
+                <div id="data"></div>
+                <div id="options">
+                    <button id="open" onclick="openBooru()">
+                        Open
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+        SafeDanbooru
+    </header>
+    <main>
+        <div id="search">
+            <label for="search-box" id="search-label">Search</label>
+            <input type="search" name="search-box" id="search-box">
+            <div id="tags">
+                <ul id="tag-list">
+                </ul>
+            </div>
+        </div>
+        <div id="content">
+            <div id="images">
+                <h1>Not to be confused with <a href="https://safebooru.org/">SafeBooru</a> website.</h1>
+                <p>I did this for my personal practice project for learning API.</p>
+                <p>This uses Danbooru's API for searching <code>rated:general</code> images.</p>
+            </div>
+            <div id="page">
+                <button id="prev" onclick="prev()">
+                    Previous
+                </button>
+                <span id="page-number">
+                    1
+                </span>
+                <button id="next" onclick="next()">
+                    Next
+                </button>
+            </div>
+        </div>
+    </main>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
