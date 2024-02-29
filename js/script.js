@@ -5,6 +5,7 @@ const tagsLink = "https://danbooru.donmai.us/tags.json?search[order]=count&searc
 var tag = ""
 var page = 1
 var id = 0
+var ext = ""
 
 
 function init()
@@ -120,6 +121,7 @@ function openFullSize(img, data)
             <p>Copyright: ${data.tag_string_copyright}</p>
         `)
     id = data.id
+    ext = data.file_ext
     console.log(id)
 }
 
@@ -137,6 +139,24 @@ function next()
 {
     page += 1
     loadImages(tag, page)
+}
+
+async function save()
+{
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", $("#full-image").attr("src"), true);
+    xhr.responseType = "blob";
+    xhr.onload = function(){
+        var urlCreator = window.URL || window.webkitURL;
+        var imageUrl = urlCreator.createObjectURL(this.response);
+        var tag = document.createElement('a');
+        tag.href = imageUrl;
+        tag.download = `${id}.${ext}`;
+        document.body.appendChild(tag);
+        tag.click();
+        document.body.removeChild(tag);
+    }
+    xhr.send();
 }
 
 function openBooru()
