@@ -23,14 +23,9 @@ function init()
 
     $("#full-screen")
         .click(() => {
-            $("#full-screen").fadeOut(300)
             $("#full-screen").fadeOut(300, () =>  $("body").css("overflow", "auto") )
             $("#context-menu").hide(300)
         })
-        .keypress((e) => {
-            console.log(e.key)
-            $("#full-screen").fadeOut(300)
-        });
     $("#full-screen-image")
         .on("contextmenu", (e) => {
             e.preventDefault();
@@ -85,7 +80,6 @@ async function loadImages(tag, page)
     }
 
     JSON.forEach(element => {
-        console.log(element.file_ext)
         if (element.file_ext != 'jpg' && element.file_ext != 'png' && element.file_ext != 'gif') 
         {
             return
@@ -106,15 +100,12 @@ async function loadImages(tag, page)
 
 function openFullSize(img, data)
 {
-    console.log(img)
     $("#full-screen")
-        .fadeIn(300)
         .fadeIn(300, () => { $("body").css("overflow", "hidden") })
         .css("display", "flex");
     $("#full-screen-image")
         .empty()
         .append(`<img src="${img}" id="full-image">`)
-    console.log(data)
     $("body")
         .css("overflow", "hidden")
     $("#data")
