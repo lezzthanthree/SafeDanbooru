@@ -24,6 +24,7 @@ function init()
     $("#full-screen")
         .click(() => {
             $("#full-screen").fadeOut(300)
+            $("#full-screen").fadeOut(300, () =>  $("body").css("overflow", "auto") )
             $("#context-menu").hide(300)
         })
         .keypress((e) => {
@@ -108,17 +109,21 @@ function openFullSize(img, data)
     console.log(img)
     $("#full-screen")
         .fadeIn(300)
+        .fadeIn(300, () => { $("body").css("overflow", "hidden") })
         .css("display", "flex");
     $("#full-screen-image")
         .empty()
         .append(`<img src="${img}" id="full-image">`)
     console.log(data)
+    $("body")
+        .css("overflow", "hidden")
     $("#data")
         .empty()
         .append(`
             <p>Artist: ${data.tag_string_artist}</p>
             <p>Characters: ${data.tag_string_character}</p>
             <p>Copyright: ${data.tag_string_copyright}</p>
+            <p>File Size: ${((data.file_size) / 1024 ** 2).toFixed(2)} MB</p>
         `)
     id = data.id
     ext = data.file_ext
