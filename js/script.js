@@ -106,6 +106,41 @@ function openFullSize(img, data)
     $("#full-screen-image")
         .empty()
         .append(`<img src="${img}" id="full-image">`)
+    console.log(data.image_width / data.image_height)
+    if (data.image_width / data.image_height > 1.8)
+    {
+        $("#full-screen")
+        .css({
+            "flex-direction": "column",
+        })
+        $("#full-screen-image")
+            .css({
+                width: "90%",
+                height: "auto"
+            })
+        $("#full-image")
+            .css({
+                width: "100%",
+                height: "auto"
+            })
+    }
+    else
+    {
+        $("#full-screen")
+        .css({
+            "flex-direction": "row",
+        })
+        $("#full-screen-image")
+        .css({
+            width: "auto",
+            height: "90%"
+        })
+        $("#full-image")
+            .css({
+                width: "auto",
+                height: "100%"
+            })
+    }
     $("body")
         .css("overflow", "hidden")
     $("#data")
