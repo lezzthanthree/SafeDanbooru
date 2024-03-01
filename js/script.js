@@ -21,18 +21,16 @@ function init()
         } 
     });
 
-    $("#full-screen")
-        .click(() => {
-            $("#full-screen").fadeOut(300, () =>  $("body").css("overflow", "auto") )
-            $("#context-menu").hide(300)
-        })
     $("#full-screen-image")
         .on("contextmenu", (e) => {
             e.preventDefault();
             $("#context-menu").toggle(300)
+        })
+        .click(() => {
+            $("#full-screen").fadeOut(300, () =>  $("body").css("overflow-y", "auto") )
+            $("#context-menu").hide(300)
+        })
 
-        }
-    )
 }
 
 async function loadTags(value)
@@ -101,7 +99,7 @@ async function loadImages(tag, page)
 function openFullSize(img, data)
 {
     $("#full-screen")
-        .fadeIn(300, () => { $("body").css("overflow", "hidden") })
+        .fadeIn(300, () => { $("body").css("overflow-x", "hidden") })
         .css("display", "flex");
     $("#full-screen-image")
         .empty()
@@ -142,13 +140,14 @@ function openFullSize(img, data)
             })
     }
     $("body")
-        .css("overflow", "hidden")
+        .css("overflow-y", "hidden")
     $("#data")
         .empty()
         .append(`
             <p>Artist: ${data.tag_string_artist}</p>
             <p>Characters: ${data.tag_string_character}</p>
             <p>Copyright: ${data.tag_string_copyright}</p>
+            <p>Dimensions: ${data.image_width} x ${data.image_height}</p>
             <p>File Size: ${((data.file_size) / 1024 ** 2).toFixed(2)} MB</p>
         `)
     id = data.id
