@@ -7,7 +7,6 @@ var page = 1
 var id = 0
 var ext = ""
 
-
 function init()
 {
     $("#search-box").keyup(function (e) { 
@@ -43,7 +42,6 @@ async function loadTags(value)
     var url = await fetch(`${tagsLink}*${value}*`)
     var JSON = await url.json()
 
-    console.log(JSON)
     $("#tag-list").empty()
 
     JSON.forEach(element => {
