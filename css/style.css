@@ -59,6 +59,7 @@ a
 
 #tags
 {
+    width: 100%;
     margin: 10px 0;
 }
 
@@ -80,10 +81,12 @@ a
 
 #content
 {
+    width: 100%;
     margin-left: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    user-select: none;
 }
 
 #images
@@ -127,8 +130,10 @@ a
     width: 100vw;
     height: 100vh;
     background-color: #000000aa;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    overflow-x: auto;
 }
 
 #full-screen-image
