@@ -57,10 +57,17 @@ a
     font-weight: bold;
 }
 
+#search-box
+{
+    padding: 5px 10px;
+    margin: 4px 0px
+}
+
 #tags
 {
     width: 100%;
     margin: 10px 0;
+    transition: all 0.3s;
 }
 
 #tag-list, .tag-item
@@ -86,18 +93,21 @@ a
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: all 0.5s;
     user-select: none;
 }
 
 #images
 {
     width: auto; 
+    transition: all 0.5s;
 }
 
 .image
 {
     height: 200px;
     margin: 3px;
+    transition: all 0.5s;
 }
 
 #page
@@ -121,10 +131,17 @@ a
     margin: 0px 10px;
 }
 
-#full-screen
+.tutorial-info
+{
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+}
+
+#full-screen, #tutorial
 {
     display: none;
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -134,6 +151,11 @@ a
     justify-content: center;
     align-items: center;
     overflow-x: auto;
+}
+
+#tutorial 
+{
+    flex-direction: column !important;
 }
 
 #full-screen-image
