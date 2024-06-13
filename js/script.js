@@ -91,7 +91,7 @@ async function loadImages(tag, page) {
         }
 
         $("#images").append(
-            $(`<img src="${element.file_url}" class="image">`).click(() => {
+            $(`<img src="${element.preview_file_url}" class="image">`).click(() => {
                 openFullSize(element.file_url, element);
                 tutorialFlag();
             })
