@@ -68,6 +68,7 @@ a
     width: 100%;
     margin: 10px 0;
     transition: all 0.3s;
+    background-color: #3f4058;
 }
 
 #tag-list, .tag-item
@@ -78,12 +79,19 @@ a
     /* width: 200px; */
 }
 
+.tag-item:hover
+{
+    background-color: #5a5b7f;
+
+}
+
 .tag-item
 {
     cursor: pointer;
     user-select: none;
     text-decoration: underline;
     color: #4bb4ff;
+    padding: 0px 10px
 }
 
 #content
@@ -139,7 +147,7 @@ a
 }
 
 #full-screen, #tutorial
-{
+{   
     display: none;
     position: fixed;
     top: 0;
